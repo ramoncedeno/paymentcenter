@@ -10,3 +10,11 @@ Version control and deployment
 - git version 2.43.0.windows.1code
 - code -v 1.92.2
 
+used
+- npm install
+- composer install
+- npm run build
+
+UI
+- composer require laravel/breeze --dev
+- php artisan breeze:install blade --dark
