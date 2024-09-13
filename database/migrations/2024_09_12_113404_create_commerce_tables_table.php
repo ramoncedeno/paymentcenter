@@ -12,8 +12,12 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('commerce_tables', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+            $table->id()->unsigned()->comment('Primary key, auto-incremental');
+            $table->string('',0)->comment('');
+            $table->string('created_at',255)->comment('date the record was created');
+            $table->string('updated_at',255)->comment('date the record was modified');
+            $table->string('deleted_at',255)->comment('date the record was deleted');
+
         });
     }
 
