@@ -11,10 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('commerce', function (Blueprint $table) {
+        Schema::create('trade_category', function (Blueprint $table) {
             $table->id()->unsigned();
-            $table->string('trade_name',255)->comment('name of the trade');
-            $table->string('trade_category',255)->comment('trade category');
+            $table->string('trade_category',1)->comment('category assigned to the store A,B,C');
             $table->timestamps();
             $table->softDeletes();
         });
@@ -25,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('commerce');
+        Schema::dropIfExists('trade_category');
     }
 };
