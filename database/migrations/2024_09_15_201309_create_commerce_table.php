@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('commerce', function (Blueprint $table) {
             $table->id()->unsigned();
-            $table->string('commerce_name');
-
+            $table->string('trade_name')->comment('name of the trade');
+            $table->string('trade_category')->comment('trade category');
             $table->timestamps();
             $table->softDeletes();
         });
