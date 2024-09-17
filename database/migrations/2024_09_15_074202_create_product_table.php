@@ -12,8 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('product', function (Blueprint $table) {
-            $table->id()->unsigned()->comment('Primary key, auto-incremental');
-            $table->integer('product_id',10)->comment('id assigned to the product by the sponsor');
+            $table->id()->comment('Primary key, auto-incremental');
+            $table->string('product_id',10)->comment('id assigned to the product by the sponsor');
             $table->string('product_name',255)->comment('code name assigned to the product');
             $table->decimal('pricing', 5, 2)->comment('product price');
             $table->timestamps();// Add created_at and updated_at

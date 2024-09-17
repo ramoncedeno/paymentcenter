@@ -12,14 +12,19 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('customer', function (Blueprint $table) {
-            $table->id()->unsigned()->comment('Primary key, auto-incremental');
+            $table->id()->comment('Primary key, auto-incremental');
             $table->string('card',16)->comment('Credit Card Number');
             $table-> string('customer_name',255)->comment('customer name');
             $table-> date('member_since')->comment('account opening date');
-            $table-> string('status_account_id',255)->comment('account status NUEVA or ANTIGUA [FK]');
-            $table-> string('status_contract',255)->comment('contract status SI or NO [FK]');
+            $table-> unsignedBigInteger('status_account')->comment('account status NUEVA or ANTIGUA [FK]');
+            $table-> unsignedBigInteger('status_contract')->comment('contract status SI or NO [FK]');
             $table->timestamps();
             $table->softDeletes();
+
+            //forein keys
+            $table->foreign('status_account')->references('id')->on('general_status');
+            $table->foreign('status_contract')->references('id')->on('general_status');
+
         });
     }
 

@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('general_status', function (Blueprint $table) {
-            $table->id()->unsigned()->comment('Primary key, auto-incremental');
+            $table->id()->comment('Primary key, auto-incremental');
             $table->string('general_status_name', 255)->comment('Name of the general state');
             $table->boolean('status_is_account')->comment('Indicates true or false in the table of the same name');
             $table->boolean('status_is_contract')->comment('Indicates true or false in the table of the same name');

@@ -12,13 +12,19 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('employee', function (Blueprint $table) {
-            $table->id()->unsigned();
+            $table->id();
             $table->string('employee_name')-> comment('employee name');
             $table->string('employee_number')-> comment('employee number');
             $table->string('sunnel_user')->comment('sunnel username');
-            $table->string('status_pay')->comment('different payment statuses [FK]');
+            $table->unsignedBigInteger('status_pay')->comment('different payment statuses [FK]');
             $table->timestamps();
             $table->softDeletes();
+
+            //forein keys
+
+            $table->foreign('status_pay')->references('id')->on('general_status');
+
+
         });
     }
 
