@@ -15,9 +15,9 @@ return new class extends Migration
             $table->id()->comment('Primary key, auto-incremental');
             $table->string('card',16)->comment('Credit Card Number');
             $table-> string('customer_name',255)->comment('customer name');
-            $table-> date('member_since')->comment('account opening date');
-            $table-> unsignedBigInteger('status_account')->comment('account status NUEVA or ANTIGUA [FK]');
-            $table-> unsignedBigInteger('status_contract')->comment('contract status SI or NO [FK]');
+            $table-> date('member_since')->comment('Account opening date');
+            $table-> unsignedBigInteger('status_account')->comment('Account status NEW or OLD'); //[FK]
+            $table-> unsignedBigInteger('status_contract')->comment('Contract status YES or NO ');//[FK]
             $table->timestamps();
             $table->softDeletes();
 

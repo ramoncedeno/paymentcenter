@@ -12,16 +12,15 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('commerce', function (Blueprint $table) {
-            $table->id()->comment('Primary key, auto-incremental');
+            $table->id();
             $table->string('trade_name',255)->comment('name of the trade');
-            $table->unsignedBigInteger('category_name')->comment('trade category');
+            $table->unsignedBigInteger('commerce_category')->comment('trade category');
             $table->timestamps();
             $table->softDeletes();
 
             //forein key
 
-            // $table->foreign('category_name')->references('id')->on('trade_category');  ERROR
-
+            $table->foreign('commerce_category')->references('id')->on('trade_category');
 
         });
     }
