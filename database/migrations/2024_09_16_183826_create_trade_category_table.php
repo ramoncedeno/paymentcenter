@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('trade_category', function (Blueprint $table) {
             $table->id();
-            $table->string('category_name',255)->comment('category assigned to the store A,B,C');
+            $table->string('commerce_category',255)->comment('category assigned to the store A,B,C');
             $table->timestamps();
             $table->softDeletes();
         });
