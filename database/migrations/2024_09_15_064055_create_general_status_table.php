@@ -19,7 +19,7 @@ return new class extends Migration
             $table->boolean('status_is_pay')->comment('Indicates true or false in the table of the same name');
             $table->boolean('status_is_sale')->comment('Indicates true or false in the table of the same name');
             $table->boolean('status_is_cancellation')->comment('Indicates true or false in the table of the same name');
-            $table->text('description')->comment('status description');
+            $table->text('description')->comment('Status description');
             $table->timestamps();// Add created_at and updated_at
             $table->softDeletes(); // Add deleted_at for logical deletes
         });
