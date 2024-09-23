@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('employee', function (Blueprint $table) {
             $table->id()->comment('Primary key, auto-incremental');
-            $table->string('employee_name')-> comment('employee name');
-            $table->string('employee_number')-> comment('employee number');
-            $table->string('sunnel_user')->comment('sunnel username');
-            $table->unsignedBigInteger('status_pay')->comment('different payment statuses [FK]');
+            $table->string('employee_name')-> comment('Employee name');
+            $table->string('employee_number')-> comment('Employee number');
+            $table->string('sunnel_user')->comment('Sunnel username');
+            $table->unsignedBigInteger('status_pay')->comment('Different payment statuses');
             $table->timestamps();
             $table->softDeletes();
 

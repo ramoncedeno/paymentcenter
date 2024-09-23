@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('commerce', function (Blueprint $table) {
             $table->id()->comment('Primary key, auto-incremental');
-            $table->string('trade_name',255)->comment('name of the trade');
-            $table->unsignedBigInteger('commerce_category')->comment('trade category');
+            $table->string('trade_name',255)->comment('Name of the trade');
+            $table->unsignedBigInteger('commerce_category')->comment('Trade category');
             $table->timestamps();
             $table->softDeletes();
 
