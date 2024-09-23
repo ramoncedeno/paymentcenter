@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('payment', function (Blueprint $table) {
-            $table->id();
+            $table->id()->comment('Primary key, auto-incremental');
             $table->string('card',16)->comment('Card number');
             $table->string('customer_name',255)->comment('Customer name');
             $table->unsignedBigInteger('product_idname')->comment('Id assigned to the product by the sponsor'); //FK

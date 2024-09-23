@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('trade_category', function (Blueprint $table) {
-            $table->id();
+            $table->id()->comment('Primary key, auto-incremental');
             $table->string('commerce_category',255)->comment('category assigned to the store A,B,C');
             $table->timestamps();
             $table->softDeletes();

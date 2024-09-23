@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('commerce', function (Blueprint $table) {
-            $table->id();
+            $table->id()->comment('Primary key, auto-incremental');
             $table->string('trade_name',255)->comment('name of the trade');
             $table->unsignedBigInteger('commerce_category')->comment('trade category');
             $table->timestamps();
