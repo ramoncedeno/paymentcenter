@@ -16,13 +16,13 @@ return new class extends Migration
             $table->string('employee_name')-> comment('Employee name');
             $table->string('employee_number')-> comment('Employee number');
             $table->string('sunnel_user')->comment('Sunnel username');
-            $table->unsignedBigInteger('status_pay')->comment('Different payment statuses');
+            $table->unsignedBigInteger('status_employee')->comment('Different payment statuses');
             $table->timestamps();
             $table->softDeletes();
 
             //forein keys
 
-            $table->foreign('status_pay')->references('id')->on('general_status');
+            $table->foreign('status_employee')->references('id')->on('general_status');
 
 
         });
