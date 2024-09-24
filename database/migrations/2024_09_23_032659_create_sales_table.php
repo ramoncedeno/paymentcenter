@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('activation', function (Blueprint $table) {
+        Schema::create('sales', function (Blueprint $table) {
             $table->id()->comment('Primary key, auto-incremental');
             $table->string('card', 16)->comment('Card number');
             $table->string('cardholder_name', 255)->comment('Name of the cardholder');
@@ -45,6 +45,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('activation');
+        Schema::dropIfExists('sales');
     }
 };
