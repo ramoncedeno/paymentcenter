@@ -18,7 +18,7 @@ return new class extends Migration
             $table-> unsignedBigInteger('employee_id_activation')->comment();
             $table-> unsignedBigInteger('trade_id')->comment();
             $table-> unsignedBigInteger('product_id')->comment();
-            $table->timestamp('status_date')->nullable()->comment();
+            $table->timestamp('sale_status_date')->nullable()->comment();
             $table->unsignedBigInteger('status_sale')->comment();
             $table-> string('origin')->comment();
             $table->timestamp('origin_date')->nullable()->comment();

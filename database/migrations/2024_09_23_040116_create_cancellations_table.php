@@ -14,17 +14,17 @@ return new class extends Migration
     {
         Schema::create('cancellations', function (Blueprint $table) {
             $table->id();
-                // $table->unsignedBigInteger('customer_id')->comment();
-                // $table->unsignedBigInteger('employee_id')->comment();
-                // $table->unsignedBigInteger('trade_id')->comment();
-                // $table->unsignedBigInteger('product_id')->comment();
-                // $table->unsignedBigInteger('product_status')->comment();
-                // $table->timestamp('cancellation_date')->nullable()->comment();
-                // $table->string('origin');
-                // $table->timestamps();
-                // $table->softDeletes();
+                $table->unsignedBigInteger('customer_id')->comment();
+                $table->unsignedBigInteger('employee_id')->comment();
+                $table->unsignedBigInteger('trade_id')->comment();
+                $table->unsignedBigInteger('product_id')->comment();
+                $table->unsignedBigInteger('product_status')->comment();
+                $table->timestamp('cancellation_status_date')->nullable()->comment();
+                $table->string('origin');
+                $table->timestamps();
+                $table->softDeletes();
 
-            //Forein keys
+            //Forein keys'
 
             // $table->foreign('customer_id')->references('id')->on('customers');
             // $table->foreign('employee_id')->references('id')->on('employees');
