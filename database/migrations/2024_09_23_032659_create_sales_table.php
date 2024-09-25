@@ -13,28 +13,25 @@ return new class extends Migration
     {
         Schema::create('sales', function (Blueprint $table) {
             $table->id()->comment('Primary key, auto-incremental');
-            $table->string('card', 16)->comment('Card number');
-            $table->string('cardholder_name', 255)->comment('Name of the cardholder');
-            $table->timestamp('member_since')->nullable()->comment('Date since the member is active'); // Verificado  nullable para evitar errores
-            $table->unsignedBigInteger('status_contract')->comment('Status of the contract');
-            $table->unsignedBigInteger('status_account')->comment('Status of the account');
-            $table->timestamp('sale_date')->nullable()->comment('Date of sale'); // Verificado como nullable para evitar errores
-            $table->string('user', 255)->comment('User who handled the activation');
-            $table->string('executive', 255)->comment('Sales executive involved in the sale');
-            $table->string('store', 255)->comment('Store or commerce involved');
-            $table->string('activacion_store_executive', 255)->comment('Store executive responsible for activation');
-            $table->unsignedBigInteger('product_idasigned')->comment('ID of the assigned product');
-            $table->string('producto_name', 255)->comment('Name of the product');
-            $table->string('employee_number', 255)->comment('Employee number handling the activation');
-            $table->string('activation_user', 255)->comment('User who activated the product');
+            $table-> unsignedBigInteger('customer_id')->comment();
+            $table-> unsignedBigInteger('employee_id_sale')->comment();
+            $table-> unsignedBigInteger('employee_id_activation')->comment();
+            $table-> unsignedBigInteger('trade_id')->comment();
+            $table-> unsignedBigInteger('product_id')->comment();
+            $table->timestamp('status_date')->nullable()->comment();
+            $table->unsignedBigInteger('status_sale')->comment();
+            $table-> string('origin')->comment();
+            $table->timestamp('origin_date')->nullable()->comment();
             $table->timestamps();
             $table->softDeletes();
 
             //Forein keys
-            $table->foreign('status_contract')->references('id')->on('general_status');
-            $table->foreign('status_account')->references('id')->on('general_status');
-            $table->foreign('product_idasigned')->references('id')->on('product');
-
+            $table->foreign('customer_id')->references('id')->on('customers');
+            $table->foreign('employee_id_sale')->references('id')->on('employees');
+            $table->foreign('employee_id_activation')->references('id')->on('employees');
+            $table->foreign('trade_id')->references('id')->on('trades');
+            $table->foreign('product_id')->references('id')->on('products');
+            $table->foreign('status_sale')->references('id')->on('general_statuses');
 
 
         });

@@ -11,10 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('customer', function (Blueprint $table) {
+        Schema::create('customers', function (Blueprint $table) {
             $table->id()->comment('Primary key, auto-incremental');
             $table->string('card',16)->comment('Credit Card Number');
-            $table-> string('customer_name',255)->comment('customer name');
+            $table-> string('customer_name')->comment('customer name');
             $table-> date('member_since')->comment('Account opening date');
             $table-> unsignedBigInteger('status_account')->comment('Account status NEW or OLD'); //[FK]
             $table-> unsignedBigInteger('status_contract')->comment('Contract status YES or NO ');//[FK]
@@ -22,8 +22,9 @@ return new class extends Migration
             $table->softDeletes();
 
             //forein keys
-            $table->foreign('status_account')->references('id')->on('general_status');
-            $table->foreign('status_contract')->references('id')->on('general_status');
+            $table->foreign('status_account')->references('id')->on('general_statuses');
+            $table->foreign('status_contract')->references('id')->on('general_statuses');
+
 
         });
     }
@@ -33,6 +34,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('customer');
+        Schema::dropIfExists('customers');
     }
 };

@@ -11,9 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('trade_category', function (Blueprint $table) {
+        Schema::create('trade_categories', function (Blueprint $table) {
             $table->id()->comment('Primary key, auto-incremental');
-            $table->string('commerce_category',255)->comment('Category assigned to the store A,B,C');
+            $table->string('name_category')->comment('Category assigned to the store A,B,C');
             $table->timestamps();
             $table->softDeletes();
         });
@@ -24,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('trade_category');
+        Schema::dropIfExists('trade_categories');
     }
 };

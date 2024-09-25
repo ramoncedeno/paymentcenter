@@ -11,17 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('commerce', function (Blueprint $table) {
+        Schema::create('employees_categories', function (Blueprint $table) {
             $table->id()->comment('Primary key, auto-incremental');
-            $table->string('trade_name',255)->comment('Name of the trade');
-            $table->unsignedBigInteger('commerce_category')->comment('Trade category');
+            $table->string('name_category')->comment('Category assigned to the store A,B,C');
             $table->timestamps();
             $table->softDeletes();
-
-            //forein key
-
-            $table->foreign('commerce_category')->references('id')->on('trade_category');
-
         });
     }
 
@@ -30,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('commerce');
+        Schema::dropIfExists('employees_categories');
     }
 };
