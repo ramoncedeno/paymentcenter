@@ -15,20 +15,19 @@ return new class extends Migration
     {
         Schema::create('rates', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('product_id')->comment();
-            $table->unsignedBigInteger('emmploye_id')->comment();
-            $table->unsignedBigInteger('')->comment();
-            $table->integer('goal')->comment();
-
-            // // $table->string('')->comment();
-            // $table->string('')->comment();
-            // $table->string('')->comment();
-            // $table->string('')->comment();
+            $table->unsignedBigInteger('product_id')->comment('Product associated with the rate');
+            $table->unsignedBigInteger('role_id')->comment('Role associated with the rate');
+            $table->string('recurrence')->comment('Rate recurrence');
+            $table->string('currency', 3)->comment('Currency code in USD or MXN');
+            $table->string('rate_type')->comment('Type of rate');
+            $table->bigInteger('goal')->comment('Sales or performance goal associated with the rate');
             $table->timestamps();
             $table->softDeletes();
 
+            //foreign keys
 
             $table->foreign('product_id')->references('id')->on('products');
+            $table->foreign('role_id')->references('id')->on('roles');
 
 
         });

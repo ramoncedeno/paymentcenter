@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('trade_categories', function (Blueprint $table) {
             $table->id()->comment('Primary key, auto-incremental');
-            $table->string('name_category')->comment('Category assigned to the store A,B,C');
+            $table->string('category_name')->comment('Category assigned to the store A,B,C');
             $table->timestamps();
             $table->softDeletes();
         });

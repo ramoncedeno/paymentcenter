@@ -16,13 +16,13 @@ return new class extends Migration
             $table->string('trade_name')->comment('Name of the trade');
             $table->string('address')->comment('');
             $table->string('contact_phone_number')->comment('');
-            $table->unsignedBigInteger('trade_category')->comment('category assigned to trades');
+            // $table->unsignedBigInteger('trade_category_id')->comment('category assigned to trades');
             $table->timestamps();
             $table->softDeletes();
 
             //forein key
 
-            $table->foreign('trade_category')->references('id')->on('trade_categories');
+            // $table->foreign('trade_category')->references('id')->on('trade_categories');
 
         });
     }
