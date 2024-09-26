@@ -16,6 +16,8 @@ return new class extends Migration
         Schema::create('rates', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('product_id')->comment();
+            $table->unsignedBigInteger('emmploye_id')->comment();
+            $table->unsignedBigInteger('')->comment();
             $table->integer('goal')->comment();
 
             // // $table->string('')->comment();
