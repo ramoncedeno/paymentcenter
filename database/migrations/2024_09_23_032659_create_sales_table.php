@@ -19,7 +19,7 @@ return new class extends Migration
             $table-> unsignedBigInteger('trade_id')->comment();
             $table-> unsignedBigInteger('product_id')->comment();
             $table->timestamp('sale_status_date')->nullable()->comment();
-            $table->unsignedBigInteger('status_sale')->comment();
+            $table->unsignedBigInteger('status_sale_id')->comment();
             $table-> string('origin')->comment();
             $table->timestamp('origin_date')->nullable()->comment();
             $table->timestamps();
@@ -31,7 +31,7 @@ return new class extends Migration
             $table->foreign('employee_id_activation')->references('id')->on('employees');
             $table->foreign('trade_id')->references('id')->on('trades');
             $table->foreign('product_id')->references('id')->on('products');
-            $table->foreign('status_sale')->references('id')->on('general_statuses');
+            $table->foreign('status_sale_id')->references('id')->on('general_statuses');
 
 
         });

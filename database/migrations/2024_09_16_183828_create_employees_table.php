@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('employees', function (Blueprint $table) {
             $table->id()->comment('Primary key, auto-incremental');
             $table->string('employee_name')-> comment('Employee name');
+            $table->string('role_id')->comment('');
             $table->string('employee_number')-> comment('Employee number');
             $table->string('employee_sunnel_user')->comment('');
             $table->unsignedBigInteger('status_employees')->comment('');
