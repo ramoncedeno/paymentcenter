@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id()->comment('Primary key, auto-incremental');
             $table->unsignedBigInteger('product_id')->comment('Product associated with the rate');
             $table->unsignedBigInteger('role_id')->comment('Role associated with the rate');
-            $table->string('recurrence')->comment('Rate recurrence');
+            $table->unsignedBigInteger('recurrence_status_id')->comment('Rate recurrence');
             $table->string('currency', 3)->comment('Currency code in USD or MXN');
             $table->string('rate_type')->comment('Type of rate');
             $table->bigInteger('goal')->comment('Sales or performance goal associated with the rate');
@@ -28,6 +28,7 @@ return new class extends Migration
 
             $table->foreign('product_id')->references('id')->on('products');
             $table->foreign('role_id')->references('id')->on('employees_roles');
+            $table->foreign('recurrence_status_id')->references('id')->on('general_statuses');
 
 
         });

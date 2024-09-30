@@ -14,20 +14,19 @@ return new class extends Migration
         Schema::create('employees', function (Blueprint $table) {
             $table->id()->comment('Primary key, auto-incremental');
             $table->string('employee_name')-> comment('Employee name');
-            $table->string('role_id')->comment('Position assigned to the employee');
+            $table->unsignedBigInteger('role_id')->comment('Position assigned to the employee');
             $table->string('employee_number')-> comment('Employee number');
             $table->string('employee_sunnel_user')->comment('Sunnel system user');
-            $table->unsignedBigInteger('status_employees')->comment('Active or inactive status of the employee');
-            $table->unsignedBigInteger('employee_category')->comment('Category assigned to employees');
+            $table->unsignedBigInteger('status_employee_id')->comment('Active or inactive status of the employee');
+            $table->unsignedBigInteger('employee_category_id')->comment('Category assigned to employees');
             $table->string('sunnel_user')->comment('Sunnel username');
-            $table->unsignedBigInteger('status_employee')->comment('Different payment statuses');
             $table->timestamps();
             $table->softDeletes();
 
             //forein keys
-
-            $table->foreign('status_employees')->references('id')->on('general_statuses');
-            $table->foreign('employee_category')->references('id')->on('employees_categories');
+            $table->foreign('role_id')->references('id')->on('employees_roles');
+            $table->foreign('status_employee_id')->references('id')->on('general_statuses');
+            $table->foreign('employee_category_id')->references('id')->on('employees_categories');
 
 
         });
