@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('currency', 3)->comment('Currency code in USD or MXN');
             $table->string('rate_type')->comment('Type of rate');
             $table->bigInteger('goal')->comment('Sales or performance goal associated with the rate');
+            $table->timestamp('effective_date')->nullable()->comment('From when the rate is applicable');
             $table->timestamps();
             $table->softDeletes();
 

@@ -17,6 +17,7 @@ return new class extends Migration
             $table->unsignedBigInteger('status_cancellation_id')->comment('Cancellation status assigned in the process');//FK
             $table->string('origin')->comment('Name of the record related to which it belongs');
             $table->timestamp('origin_date')->nullable()->comment('Date related to the origin of the record');
+            $table->string('payment_method')->comment('payment method used (card, transfer)');
             $table->timestamps();
             $table->softDeletes();
 

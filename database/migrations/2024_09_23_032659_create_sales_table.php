@@ -27,7 +27,7 @@ return new class extends Migration
 
             //Forein keys
             $table->foreign('customer_id')->references('id')->on('customers');
-            $table->foreign('employee_sale_id')->references('id')->on('employees');
+            $table->foreign('employee_sale_id')->references('id')->on('sales');
             $table->foreign('employee_activation_id')->references('id')->on('employees');
             $table->foreign('trade_id')->references('id')->on('trades');
             $table->foreign('product_id')->references('id')->on('products');
