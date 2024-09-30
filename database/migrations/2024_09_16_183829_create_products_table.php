@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id()->comment('Primary key, auto-incremental');
-            $table->string('product_name')->comment('name assigned to the product');
+            $table->string('product_name')->comment('Name assigned to the product');
             $table->string('product_code_id')->comment('Code name assigned to the product');
             $table->decimal('pricing', 18, 4)->comment('Product price');
             $table->timestamps();// Add created_at and updated_at

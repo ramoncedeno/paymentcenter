@@ -14,15 +14,15 @@ return new class extends Migration
         Schema::create('trades', function (Blueprint $table) {
             $table->id()->comment('Primary key, auto-incremental');
             $table->string('trade_name')->comment('Name of the trade');
-            $table->string('address')->comment('');
-            $table->string('contact_phone_number')->comment('');
-            // $table->unsignedBigInteger('trade_category_id')->comment('category assigned to trades');
+            $table->string('address')->comment('Direction of trade');
+            $table->string('contact_phone_number')->comment('Contact number of the trade');
+            $table->unsignedBigInteger('trade_category_id')->comment('Category assigned to trades');
             $table->timestamps();
             $table->softDeletes();
 
             //forein key
 
-            // $table->foreign('trade_category')->references('id')->on('trade_categories');
+            $table->foreign('trade_category_id')->references('id')->on('trades_categories');
 
         });
     }

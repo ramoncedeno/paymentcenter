@@ -14,7 +14,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('rates', function (Blueprint $table) {
-            $table->id();
+            $table->id()->comment('Primary key, auto-incremental');
             $table->unsignedBigInteger('product_id')->comment('Product associated with the rate');
             $table->unsignedBigInteger('role_id')->comment('Role associated with the rate');
             $table->string('recurrence')->comment('Rate recurrence');
@@ -27,7 +27,7 @@ return new class extends Migration
             //foreign keys
 
             $table->foreign('product_id')->references('id')->on('products');
-            $table->foreign('role_id')->references('id')->on('roles');
+            $table->foreign('role_id')->references('id')->on('employees_roles');
 
 
         });

@@ -13,13 +13,13 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('cancellations', function (Blueprint $table) {
-            $table->id();
-            $table->unsignedBigInteger('sale_id')->comment();
-            $table->string('employee_cancellation')->comment();
-            $table->unsignedBigInteger('cancellation_status_id')->comment();
-            $table->timestamp('cancellation_status_date')->nullable()->comment();
-            $table->string('origin')->comment();
-            $table->timestamp('origin_date')->nullable()->comment();
+            $table->id()->comment('Primary key, auto-incremental');
+            $table->unsignedBigInteger('sale_id')->comment('Sale ID');
+            $table->string('employee_cancellation')->comment('Employee who performed the cancellation');
+            $table->unsignedBigInteger('cancellation_status_id')->comment('Cancellation status ID');
+            $table->timestamp('cancellation_status_date')->nullable()->comment('Date of cancellation status');
+            $table->string('origin')->comment('Cancellation origin');
+            $table->timestamp('origin_date')->nullable()->comment('Cancellation origin date');
             $table->timestamps();
             $table->softDeletes();
 

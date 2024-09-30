@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('customers', function (Blueprint $table) {
             $table->id()->comment('Primary key, auto-incremental');
             $table->string('card',16)->comment('Credit Card Number');
-            $table-> string('customer_name')->comment('customer name');
+            $table-> string('customer_name')->comment('Customer name');
             $table-> date('member_since')->comment('Account opening date');
             $table-> unsignedBigInteger('status_account')->comment('Account status NEW or OLD'); //[FK]
             $table-> unsignedBigInteger('status_contract')->comment('Contract status YES or NO ');//[FK]

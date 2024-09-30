@@ -13,15 +13,15 @@ return new class extends Migration
     {
         Schema::create('sales', function (Blueprint $table) {
             $table->id()->comment('Primary key, auto-incremental');
-            $table-> unsignedBigInteger('customer_id')->comment();
-            $table-> unsignedBigInteger('employee_id_sale')->comment();
-            $table-> unsignedBigInteger('employee_id_activation')->comment();
-            $table-> unsignedBigInteger('trade_id')->comment();
-            $table-> unsignedBigInteger('product_id')->comment();
-            $table->timestamp('sale_status_date')->nullable()->comment();
-            $table->unsignedBigInteger('status_sale_id')->comment();
-            $table-> string('origin')->comment();
-            $table->timestamp('origin_date')->nullable()->comment();
+            $table->unsignedBigInteger('customer_id')->comment('Customer ID');
+            $table->unsignedBigInteger('employee_id_sale')->comment('Sales employee ID');
+            $table->unsignedBigInteger('employee_id_activation')->comment('Activation employee ID');
+            $table->unsignedBigInteger('trade_id')->comment('Trade ID');
+            $table->unsignedBigInteger('product_id')->comment('Product ID');
+            $table->timestamp('sale_status_date')->nullable()->comment('Sale status date');
+            $table->unsignedBigInteger('status_sale_id')->comment('Sale status ID');
+            $table->string('origin')->comment('Sale origin');
+            $table->timestamp('origin_date')->nullable()->comment('Sale origin date');
             $table->timestamps();
             $table->softDeletes();
 

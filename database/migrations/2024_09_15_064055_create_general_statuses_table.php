@@ -22,7 +22,7 @@ return new class extends Migration
             $table->boolean('status_is_employee')->comment('Indicates whether the employee is active or retired');
             $table->text('description')->comment('Status description');
             $table->timestamps();// Add created_at and updated_at
-            $table->softDeletes(); // Add deleted_at for logical deletes
+            $table->softDeletes(); // Add deleted_at
         });
     }
 

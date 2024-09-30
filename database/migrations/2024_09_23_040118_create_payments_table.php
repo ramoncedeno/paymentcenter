@@ -13,18 +13,16 @@ return new class extends Migration
     {
         Schema::create('payments', function (Blueprint $table) {
             $table->id()->comment('Primary key, auto-incremental');
-            // $table->unsignedBigInteger('sale_id')->comment('Status assigned in the payment process');//FK
-            // $table->unsignedBigInteger('cancellation_id')->comment('Cancellation status assigned in the process');//FK
-            // $table-> string('origin')->comment();
-            // $table->timestamp('origin_date')->nullable()->comment();
-            // $table->timestamps();
-            // $table->softDeletes();
+            $table->unsignedBigInteger('status_sale_id')->comment('Status assigned in the payment process');//FK
+            $table->unsignedBigInteger('status_cancellation_id')->comment('Cancellation status assigned in the process');//FK
+            $table->string('origin')->comment('Name of the record related to which it belongs');
+            $table->timestamp('origin_date')->nullable()->comment('Date related to the origin of the record');
+            $table->timestamps();
+            $table->softDeletes();
 
             //forein keys
-            // $table->foreign('product_name_id')->references('id')->on('products');
-            // $table->foreign('status_sale_id')->references('id')->on('general_statuses');
-            // $table->foreign('status_cancellation_id')->references('id')->on('general_statuses');
-            // $table->foreign('status_trade_id')->references('id')->on('trades');
+            $table->foreign('status_sale_id')->references('id')->on('general_statuses');
+            $table->foreign('status_cancellation_id')->references('id')->on('general_statuses');
 
 
         });
