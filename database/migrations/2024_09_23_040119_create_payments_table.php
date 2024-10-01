@@ -29,6 +29,14 @@ return new class extends Migration
             $table->bigInteger('goal')->comment('Sales or performance goal associated with the rate');
             $table->timestamp('effective_date')->nullable()->comment('From when the rate is applicable');
 
+
+            //
+
+            // payed_to_employee 1;
+            // payed_to_employee 1;
+
+
+
             $table->timestamps();
             $table->softDeletes();
 
