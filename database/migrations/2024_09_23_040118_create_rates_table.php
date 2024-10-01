@@ -17,9 +17,10 @@ return new class extends Migration
             $table->id()->comment('Primary key, auto-incremental');
             $table->unsignedBigInteger('product_id')->comment('Product associated with the rate');
             $table->unsignedBigInteger('role_id')->comment('Role associated with the rate');
-            $table->unsignedBigInteger('recurrence_status_id')->comment('Rate recurrence');
+            $table->unsignedBigInteger('trade_category_id')->comment('');
+            $table->unsignedBigInteger('temporality_status_id')->comment('Rate recurrence');
+            $table->bigInteger('unit_price')->nullable()->comment('Unit price');
             $table->string('currency', 3)->comment('Currency code in USD or MXN');
-            $table->string('rate_type')->comment('Type of rate');
             $table->bigInteger('goal')->comment('Sales or performance goal associated with the rate');
             $table->timestamp('effective_date')->nullable()->comment('From when the rate is applicable');
             $table->timestamps();
@@ -29,7 +30,8 @@ return new class extends Migration
 
             $table->foreign('product_id')->references('id')->on('products');
             $table->foreign('role_id')->references('id')->on('employees_roles');
-            $table->foreign('recurrence_status_id')->references('id')->on('general_statuses');
+            $table->foreign('temporality_status_id')->references('id')->on('temporalities');
+            $table->foreign('trade_category_id')->references('id')->on('trades_categories');
 
 
         });

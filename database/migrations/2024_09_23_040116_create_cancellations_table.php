@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('employee_cancellation')->comment('Employee who performed the cancellation');
             $table->unsignedBigInteger('cancellation_status_id')->comment('Cancellation status ID');
             $table->timestamp('cancellation_status_date')->nullable()->comment('Date of cancellation status');
-            $table->string('cancellation_reason ')->comment('Reason for cancellation');
+            $table->string('cancellation_reason')->comment('Reason for cancellation');
             $table->string('origin')->comment('Cancellation origin');
             $table->timestamp('origin_date')->nullable()->comment('Cancellation origin date');
             $table->timestamps();
