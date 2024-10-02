@@ -20,23 +20,20 @@ return new class extends Migration
             $table->string('origin')->comment('Name of the record related to which it belongs');
             $table->timestamp('origin_date')->nullable()->comment('Date related to the origin of the record');
             $table->string('payment_method')->comment('payment method used (card, transfer)');
-            $table->string('status_payment')->comment('');
+            $table->unsignedBigInteger('status_payment')->comment('');
 
-             //   Reflection of migration rates
+            //   Reflection of migration rates
             $table->unsignedBigInteger('temporality_status_id')->comment('Rate recurrence');
             $table->bigInteger('unit_price')->nullable()->comment('Unit price');
             $table->string('currency', 3)->comment('Currency code in USD or MXN');
             $table->bigInteger('goal')->comment('Sales or performance goal associated with the rate');
             $table->timestamp('effective_date')->nullable()->comment('From when the rate is applicable');
 
+            // attributes related to the type of employee
+            $table->string('payed_to_employee_1')->comment('');
+            $table->string('payed_to_employee_2')->comment('');
 
-            //
-
-            // payed_to_employee 1;
-            // payed_to_employee 1;
-
-
-
+            // auditable attributes of the table
             $table->timestamps();
             $table->softDeletes();
 
