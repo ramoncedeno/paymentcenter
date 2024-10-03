@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('payments', function (Blueprint $table) {
+        Schema::create('payments_employees', function (Blueprint $table) {
             $table->id()->comment('Primary key, auto-incremental');
             $table->unsignedBigInteger('sale_id')->comment('@');
             $table->unsignedBigInteger('cancellation_id')->comment('@');
@@ -20,29 +20,26 @@ return new class extends Migration
             $table->string('origin')->comment('Name of the record related to which it belongs');
             $table->timestamp('origin_date')->nullable()->comment('Date related to the origin of the record');
             $table->string('payment_method')->comment('payment method used (card, transfer)');
-            $table->unsignedBigInteger('status_payment')->comment('');
 
             //   Reflection of migration rates
-            $table->unsignedBigInteger('temporality_status_id')->comment('Rate recurrence');
-            $table->bigInteger('unit_price')->nullable()->comment('Unit price');
-            $table->string('currency', 3)->comment('Currency code in USD or MXN');
-            $table->bigInteger('goal')->comment('Sales or performance goal associated with the rate');
-            $table->timestamp('effective_date')->nullable()->comment('From when the rate is applicable');
-
-            // attributes related to the type of employee
-            $table->string('payed_to_employee_1')->comment('');
-            $table->string('payed_to_employee_2')->comment('');
-
-            // auditable attributes of the table
+            $table->unsignedBigInteger('status_payed_to_employee_1')->comment('');
+            $table->unsignedBigInteger('temporality_status_id_employee_1')->comment('');
+            $table->timestamp('effective_date_employee_1')->nullable()->comment('From when the rate is applicable');
+            $table->bigInteger('unit_price_employee_1')->nullable()->comment('Unit price');
+            $table->string('currency_employee_1', 3)->nullable()->comment('Currency code in USD or MXN');
+            $table->bigInteger('goal_employee_1')->nullable()->comment('Sales or performance goal associated with the rate');
             $table->timestamps();
             $table->softDeletes();
 
-            //forein keys
+            //forein keys_employee_1
             $table->foreign('sale_id')->references('id')->on('sales');
             $table->foreign('cancellation_id')->references('id')->on('cancellations');
             $table->foreign('rate_id')->references('id')->on('rates');
-            $table->foreign('temporality_id')->references('id')->on('temporalities');
-            $table->foreign('status_payment')->references('id')->on('general_statuses');
+            $table->foreign('status_payed_to_employee_1')->references('id')->on('general_statuses');
+            $table->foreign('temporality_status_id_employee_1')->references('id')->on('temporalities');
+
+
+
 
 
         });
@@ -53,6 +50,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('payments');
+        Schema::dropIfExists('payments_employees');
     }
 };
