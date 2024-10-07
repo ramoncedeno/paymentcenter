@@ -13,17 +13,15 @@ return new class extends Migration
     {
         Schema::create('general_statuses', function (Blueprint $table) {
             $table->id()->comment('Primary key, auto-incremental');
-            $table->string('general_statuses_general_status_name')->comment('Name of the general state');
-            $table->boolean('general_statuses_is_for_employees_table')->comment('');
-            $table->boolean('general_statuses_is_for_customers_table')->comment('');
-            $table->boolean('general_statuses_is_for_sales_table')->comment('');
-            $table->boolean('general_statuses_is_for_cancellations_table')->comment('');
-            $table->boolean('general_statuses_is_for_payments_employees_table')->comment('');
-            $table->boolean('general_statuses_is_for_payments_supervisors_table')->comment('');
-
-
-            $table->boolean('status_is_rate')->comment('Monthly or quarterly frequency');
-            $table->text('description')->comment('Status description');
+            $table->string('general_statuses_status_general_status_name')->comment('Name of the general state');
+            $table->boolean('general_statuses_status_is_for_employees_table')->comment('');
+            $table->boolean('general_statuses_status_is_for_customers_table')->comment('');
+            $table->boolean('general_statuses_status_is_for_sales_table')->comment('');
+            $table->boolean('general_statuses_status_is_for_cancellations_table')->comment('');
+            $table->boolean('general_statuses__status_is_for_payments_employees_table')->comment('');
+            $table->boolean('general_statuses_status_is_for_payments_supervisors_table')->comment('');
+            $table->boolean('general_statuses_status_is_for_rate')->comment('Monthly or quarterly frequency');
+            $table->text('general_statuses_description')->comment('Status description');
             $table->timestamps();// Add created_at and updated_at
             $table->softDeletes(); // Add deleted_at
         });
