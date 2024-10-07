@@ -31,7 +31,7 @@ return new class extends Migration
             $table->timestamps();
             $table->softDeletes();
 
-            //forein keys_employee_1
+            //forein keys for employee
             $table->foreign('sale_id')->references('id')->on('sales');
             $table->foreign('cancellation_id')->references('id')->on('cancellations');
             $table->foreign('rate_id')->references('id')->on('rates');

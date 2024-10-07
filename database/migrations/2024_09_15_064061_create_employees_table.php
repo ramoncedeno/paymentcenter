@@ -13,20 +13,20 @@ return new class extends Migration
     {
         Schema::create('employees', function (Blueprint $table) {
             $table->id()->comment('Primary key, auto-incremental');
-            $table->string('employee_name')-> comment('Employee name');
-            $table->unsignedBigInteger('role_id')->comment('Position assigned to the employee');
-            $table->string('employee_number')-> comment('Employee number');
-            $table->string('employee_sunnel_user')->comment('Sunnel system user');
-            $table->unsignedBigInteger('status_employee_id')->comment('Active or inactive status of the employee');
-            $table->unsignedBigInteger('employee_category_id')->comment('Category assigned to employees');
-            $table->string('sunnel_user')->comment('Sunnel username');
+            $table->string('employees_employee_name')-> comment('Employee name');
+            $table->unsignedBigInteger('employees_role_id')->comment('Position assigned to the employee');
+            $table->string('employees_employee_number')-> comment('Employee number');
+            $table->string('employees_employee_sunnel_user')->comment('Sunnel system user');
+            $table->unsignedBigInteger('employees_status_employee_id')->comment('Active or inactive status of the employee');
+            $table->unsignedBigInteger('employees_employee_category_id')->comment('Category assigned to employees');
+            $table->string('employees_sunnel_user')->comment('Sunnel username');
             $table->timestamps();
             $table->softDeletes();
 
             //forein keys
-            $table->foreign('role_id')->references('id')->on('employees_roles');
-            $table->foreign('status_employee_id')->references('id')->on('general_statuses');
-            $table->foreign('employee_category_id')->references('id')->on('employees_categories');
+            $table->foreign('employees_role_id')->references('id')->on('employees_roles');
+            $table->foreign('employees_status_employee_id')->references('id')->on('general_statuses');
+            $table->foreign('employees_employee_category_id')->references('id')->on('employees_categories');
 
 
         });

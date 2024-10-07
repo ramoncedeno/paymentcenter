@@ -13,13 +13,13 @@ return new class extends Migration
     {
         Schema::create('temporalities', function (Blueprint $table) {
             $table->id()->comment('Primary key, auto-incremental');
-            $table->string('temporality_name')->comment('Name of temporality');
-            $table->integer('day')->comment('Day');
-            $table->string('alert_n1')->comment('Increase from lowest to highest. Success,Warning,Danger,Dark');
-            $table->string('alert_n2')->comment('Increase from lowest to highest. Success,Warning,Danger,Dark');
-            $table->string('alert_n3')->comment('Increase from lowest to highest. Success,Warning,Danger,Dark');
-            $table->string('alert_n4')->comment('Increase from lowest to highest. Success,Warning,Danger,Dark');
-            $table->string('description')->comment('Description');
+            $table->string('temporalities_temporality_name')->comment('Name of temporality');
+            $table->integer('temporalities_day')->comment('Day');
+            $table->string('temporalities_alert_n1')->comment('Increase from lowest to highest. Success,Warning,Danger,Dark');
+            $table->string('temporalities_alert_n2')->comment('Increase from lowest to highest. Success,Warning,Danger,Dark');
+            $table->string('temporalities_alert_n3')->comment('Increase from lowest to highest. Success,Warning,Danger,Dark');
+            $table->string('temporalities_alert_n4')->comment('Increase from lowest to highest. Success,Warning,Danger,Dark');
+            $table->string('temporalities_description')->comment('Description');
             $table->timestamps();
             $table->softDeletes();
 
