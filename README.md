@@ -5,6 +5,7 @@ Requirements
 - npm -v comp10.2.4
 - Composer version 2.6.6 2023-12-08 18:32:26
 - DB_CONNECTION: mysql utf8mb4_general_ci
+- mariaDB 10.5
 
 Version control and deployment
 - git version 2.43.0.windows.1code
