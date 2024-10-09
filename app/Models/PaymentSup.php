@@ -29,6 +29,7 @@ class PaymentSup extends Model
         'payment_sups_unit_price',
         'payment_sups_currency',
         'payment_sups_goal',
+        'total_to_pay'
 
 
 
