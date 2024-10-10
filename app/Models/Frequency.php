@@ -5,19 +5,19 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Temporality extends Model
+class Frequency extends Model
 {
     use HasFactory;
 
      // Defines attributes that can be mass assigned.
      protected $fillable = [
 
-        'temporalities_temporality_name',
-        'temporalities_day',
-        'temporalities_alert_n1',
-        'temporalities_alert_n2',
-        'temporalities_alert_n3',
-        'temporalities_alert_n4',
+        'frecuency_temporality_name',
+        'frecuency_day',
+        'frecuency_alert_n1',
+        'frecuency_alert_n2',
+        'frecuency_alert_n3',
+        'frecuency_alert_n4',
 
 
      ];
