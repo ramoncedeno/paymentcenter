@@ -18,7 +18,7 @@ return new class extends Migration
             $table->unsignedBigInteger('rate_product_id')->comment('Product associated with the rate');
             $table->unsignedBigInteger('rate_role_id')->comment('Role associated with the rate');
             $table->unsignedBigInteger('rate_trade_category_id')->comment('');
-            $table->unsignedBigInteger('rate_temporality_status_id')->comment('Rate recurrence');
+            $table->unsignedBigInteger('rate_frequency_status_id')->comment('Rate recurrence');
             $table->bigInteger('rate_unit_price')->nullable()->comment('Unit price');
             $table->string('rate_currency', 3)->comment('Currency code in USD or MXN');
             $table->bigInteger('rate_goal')->comment('Sales or performance goal associated with the rate');
@@ -30,7 +30,7 @@ return new class extends Migration
 
             $table->foreign('rate_product_id')->references('id')->on('products');
             $table->foreign('rate_role_id')->references('id')->on('employees_roles');
-            $table->foreign('rate_temporality_status_id')->references('id')->on('temporalities');
+            $table->foreign('rate_frequency_status_id')->references('id')->on('frequencies');
             $table->foreign('rate_trade_category_id')->references('id')->on('trades_categories');
 
 

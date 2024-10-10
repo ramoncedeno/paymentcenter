@@ -16,14 +16,14 @@ return new class extends Migration
             $table->unsignedBigInteger('payment_ees_sale_id')->comment('@');
             $table->unsignedBigInteger('payment_ees_cancellation_id')->comment('@');
             $table->unsignedBigInteger('payment_ees_rate_id')->comment('');
-            $table->unsignedBigInteger('payment_ees_temporality_id')->comment('');
+            $table->unsignedBigInteger('payment_ees_frequency_id')->comment('');
             $table->string('payment_ees_origin')->comment('Name of the record related to which it belongs');
             $table->timestamp('payment_ees_origin_date')->nullable()->comment('Date related to the origin of the record');
             $table->string('payment_ees_payment_method')->comment('payment method used (card, transfer)');
 
             //   Reflection of migration rates
             $table->unsignedBigInteger('payment_ees_status_payed_to_employee')->comment('');
-            $table->unsignedBigInteger('payment_ees_temporality_status_id_employee')->comment('');
+            $table->unsignedBigInteger('payment_ees_frequency_status_id_employee')->comment('');
             $table->timestamp('payment_ees_effective_date_employee')->nullable()->comment('From when the rate is applicable');
             $table->bigInteger('payment_ees_unit_price_employee')->nullable()->comment('Unit price');
             $table->string('payment_ees_currency_employee', 3)->nullable()->comment('Currency code in USD or MXN');
@@ -36,7 +36,7 @@ return new class extends Migration
             $table->foreign('payment_ees_cancellation_id')->references('id')->on('cancellations');
             $table->foreign('payment_ees_rate_id')->references('id')->on('rates');
             $table->foreign('payment_ees_status_payed_to_employee')->references('id')->on('general_statuses');
-            $table->foreign('payment_ees_temporality_status_id_employee')->references('id')->on('temporalities');
+            $table->foreign('payment_ees_frequency_status_id_employee')->references('id')->on('frequencies');
 
 
 
