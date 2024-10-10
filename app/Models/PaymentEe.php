@@ -20,12 +20,15 @@ class PaymentEe extends Model
         'payment_ees_origin_date',
         'payment_ees_payment_method',
 
+
+        // attributes related to the type of employee
         'payment_ees_status_payed_to_employee',
         'payment_ees_temporality_status_id_employee',
         'payment_ees_effective_date_employee',
         'payment_ees_unit_price_employee',
         'payment_ees_currency_employee',
         'payment_ees_goal_employee',
+        'total_to_pay'
 
 
      ];

@@ -28,6 +28,7 @@ return new class extends Migration
             $table->bigInteger('payment_ees_unit_price_employee')->nullable()->comment('Unit price');
             $table->string('payment_ees_currency_employee', 3)->nullable()->comment('Currency code in USD or MXN');
             $table->bigInteger('payment_ees_goal_employee')->nullable()->comment('Sales or performance goal associated with the rate');
+            $table->bigInteger('total_to_pay')->nullable()->comment('total to be paid to the employee');
             $table->timestamps();
             $table->softDeletes();
 
