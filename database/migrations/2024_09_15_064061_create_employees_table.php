@@ -20,7 +20,6 @@ return new class extends Migration
             $table->string('employee_sunnel_arca_user')->comment('Sunnel username');
             $table->unsignedBigInteger('employee_status_employee_id')->comment('Active or inactive status of the employee');
             $table->unsignedBigInteger('employee_category_id')->comment('Category assigned to employees');
-
             $table->timestamps();
             $table->softDeletes();
 

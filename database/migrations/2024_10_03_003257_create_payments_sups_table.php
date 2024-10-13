@@ -16,15 +16,15 @@ return new class extends Migration
             $table->unsignedBigInteger('payment_sups_sale_id')->comment('id assigned to the sale');
             $table->unsignedBigInteger('payment_sups_cancellation_id')->comment('id assigned to the cancellation');
             $table->unsignedBigInteger('payment_sups_rate_id')->comment('id assigned to the product rate');
-            $table->unsignedBigInteger('payment_sups_frequency_id')->comment('@');
+            $table->unsignedBigInteger('payment_sups_frequency_id')->comment('Weekly or monthly frequency id');
             $table->string('payment_sups_origin')->comment('Name of the record related to which it belongs');
             $table->timestamp('payment_sups_origin_date')->nullable()->comment('Date related to the origin of the record');
             $table->string('payment_sups_payment_method')->comment('payment method used (card, transfer)');
 
 
             // attributes related to the type of employee
-            $table->unsignedBigInteger('payment_sups_payed_status_id')->comment('');
-            $table->unsignedBigInteger('payment_sups_frequency_status_id')->comment('');
+            $table->unsignedBigInteger('payment_sups_payed_status_id')->comment('pending, paid or held payment status');
+            $table->unsignedBigInteger('payment_sups_frequency_status_id')->comment('table name frequencies');
             $table->timestamp('payment_sups_effective_date')->nullable()->comment('From when the rate is applicable');
             $table->bigInteger('payment_sups_unit_price')->nullable()->comment('Unit price');
             $table->string('payment_sups_currency', 3)->nullable()->comment('Currency code in USD or MXN');
@@ -38,6 +38,7 @@ return new class extends Migration
             $table->foreign('payment_sups_sale_id')->references('id')->on('sales');
             $table->foreign('payment_sups_cancellation_id')->references('id')->on('cancellations');
             $table->foreign('payment_sups_rate_id')->references('id')->on('rates');
+            $table->foreign('payment_sups_frequency_id')->references('id')->on('frequencies');
             $table->foreign('payment_sups_payed_status_id')->references('id')->on('general_statuses');
             $table->foreign('payment_sups_frequency_status_id')->references('id')->on('frequencies');
 

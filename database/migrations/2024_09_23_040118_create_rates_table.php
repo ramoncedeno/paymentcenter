@@ -30,9 +30,8 @@ return new class extends Migration
 
             $table->foreign('rate_product_id')->references('id')->on('products');
             $table->foreign('rate_role_id')->references('id')->on('employees_roles');
-            $table->foreign('rate_frequency_status_id')->references('id')->on('frequencies');
             $table->foreign('rate_trade_category_id')->references('id')->on('trades_categories');
-
+            $table->foreign('rate_frequency_status_id')->references('id')->on('frequencies');
 
         });
     }

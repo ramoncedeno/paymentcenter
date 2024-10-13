@@ -18,8 +18,8 @@ return new class extends Migration
             $table->boolean('general_status_is_for_customers_table')->comment('Status referring to the customer table');
             $table->boolean('general_status_is_for_sales_table')->comment('Status referring to the sales table');
             $table->boolean('general_status_is_for_cancellations_table')->comment('Status referring to the cancellations table');
-            $table->boolean('general_status_is_for_payments_employees_table')->comment('Status referring to the employees pay table');
-            $table->boolean('general_status_is_for_payments_supervisors_table')->comment('Status referring to the supervisory pay table');
+            $table->boolean('general_status_is_for_payments_ees')->comment('Status referring to the employees pay table');
+            $table->boolean('general_status_is_for_payments_sups_table')->comment('Status referring to the supervisory pay table');
             $table->boolean('general_status_is_for_rate')->comment('Monthly or quarterly frequency');
             $table->text('general_status_description')->comment('Status description');
             $table->timestamps();// Add created_at and updated_at
